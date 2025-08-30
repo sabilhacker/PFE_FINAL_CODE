@@ -140,7 +140,7 @@ def run_PegasosQSVC(training_input, train_labels, test_input, test_labels, quant
         print(f"Error in predict_proba: {e}")
 
     # F1 score
-    f1 = f1_score(test_labels, predicted, average="weighted")
+    f1 = f1_score(test_labels, predicted, average="binary")
 
     # ROC AUC
     auc = None
