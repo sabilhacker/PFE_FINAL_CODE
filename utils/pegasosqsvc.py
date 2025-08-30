@@ -146,11 +146,12 @@ def run_PegasosQSVC(training_input, train_labels, test_input, test_labels, quant
     auc = None
     if predicted_proba is not None:
         try:
-            auc = roc_auc_score(test_labels, predicted_proba[:, 1])  # Probability of class 1
+            auc = roc_auc_score(test_labels, predicted_proba[:, 0])  # Probability of class 1
         except Exception as e:
             print(f"Error calculating ROC AUC: {e}")
+   
 
-    # Accuracy
+    # # Accuracy
     acc_score = accuracy_score(test_labels, predicted)
 
     return model, auc, f1, acc_score  # Fixed typo from acc_sc to acc_score
