@@ -30,8 +30,14 @@ from qiskit_algorithms.optimizers import SPSA, ADAM, NFT, GradientDescent, L_BFG
 #         )
 #         callback = None
 #     return callback, optimizer
-def get_optimizer_options(optimizer_type, maxiter, learning_rate, perturbation):
+# def get_optimizer_options(optimizer_type, maxiter, learning_rate, perturbation):
+#     if optimizer_type == "SPSA":
+#         optimizer = partial(SPSA, maxiter=maxiter, learning_rate=learning_rate, perturbation=perturbation)
+#         callback = "SPSACallback"
+#     return callback, optimizer
+def get_optimizer_options(optimizer_type):
     if optimizer_type == "SPSA":
-        optimizer = partial(SPSA, maxiter=maxiter, learning_rate=learning_rate, perturbation=perturbation)
+        optimizer = partial(SPSA, maxiter=300, learning_rate=0.002, perturbation=0.05)
         callback = "SPSACallback"
     return callback, optimizer
+    
